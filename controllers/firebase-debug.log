@@ -1,0 +1,134 @@
+[debug] [2024-07-20T02:28:07.888Z] ----------------------------------------------------------------------
+[debug] [2024-07-20T02:28:07.892Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\Usuário\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js init
+[debug] [2024-07-20T02:28:07.893Z] CLI Version:   13.13.2
+[debug] [2024-07-20T02:28:07.893Z] Platform:      win32
+[debug] [2024-07-20T02:28:07.893Z] Node Version:  v20.15.1
+[debug] [2024-07-20T02:28:07.893Z] Time:          Fri Jul 19 2024 23:28:07 GMT-0300 (Horário Padrão de Brasília)
+[debug] [2024-07-20T02:28:07.894Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2024-07-20T02:28:07.907Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2024-07-20T02:28:07.907Z] > authorizing via signed-in user (lenejonatasfilho@gmail.com)
+[info] 
+     ######## #### ########  ######## ########     ###     ######  ########
+     ##        ##  ##     ## ##       ##     ##  ##   ##  ##       ##
+     ######    ##  ########  ######   ########  #########  ######  ######
+     ##        ##  ##    ##  ##       ##     ## ##     ##       ## ##
+     ##       #### ##     ## ######## ########  ##     ##  ######  ########
+
+You're about to initialize a Firebase project in this directory:
+
+  C:\Users\Usuário\Desktop\css
+
+[info] 
+=== Project Setup
+[info] 
+[info] First, let's associate this project directory with a Firebase project.
+[info] You can create multiple project aliases by running firebase use --add, 
+[info] but for now we'll just set up a default project.
+[info] 
+[debug] [2024-07-20T02:28:44.474Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects pageSize=100
+[debug] [2024-07-20T02:28:45.295Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects 200
+[debug] [2024-07-20T02:28:45.295Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects [omitted]
+[info] i  Using project projetofinal-10227 (projetofinal) 
+[info] 
+=== Database Setup
+[info] i  database: ensuring required API firebasedatabase.googleapis.com is enabled... 
+[debug] [2024-07-20T02:28:50.943Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/projetofinal-10227/services/firebasedatabase.googleapis.com [none]
+[debug] [2024-07-20T02:28:50.943Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/projetofinal-10227/services/firebasedatabase.googleapis.com x-goog-quota-user=projects/projetofinal-10227
+[debug] [2024-07-20T02:28:52.141Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/projetofinal-10227/services/firebasedatabase.googleapis.com 200
+[debug] [2024-07-20T02:28:52.141Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/projetofinal-10227/services/firebasedatabase.googleapis.com [omitted]
+[info] +  database: required API firebasedatabase.googleapis.com is enabled 
+[info] 
+[debug] [2024-07-20T02:28:52.143Z] >>> [apiv2][query] GET https://firebasedatabase.googleapis.com/v1beta/projects/projetofinal-10227/locations/-/instances/projetofinal-10227-default-rtdb [none]
+[debug] [2024-07-20T02:28:53.329Z] <<< [apiv2][status] GET https://firebasedatabase.googleapis.com/v1beta/projects/projetofinal-10227/locations/-/instances/projetofinal-10227-default-rtdb 200
+[debug] [2024-07-20T02:28:53.329Z] <<< [apiv2][body] GET https://firebasedatabase.googleapis.com/v1beta/projects/projetofinal-10227/locations/-/instances/projetofinal-10227-default-rtdb {"name":"projects/178734014478/locations/us-central1/instances/projetofinal-10227-default-rtdb","project":"projects/178734014478","databaseUrl":"https://projetofinal-10227-default-rtdb.firebaseio.com","type":"DEFAULT_DATABASE","state":"ACTIVE"}
+[info] 
+[info] Firebase Realtime Database Security Rules allow you to define how your data should be
+[info] structured and when your data can be read from and written to.
+[info] 
+[debug] [2024-07-20T02:29:03.696Z] >>> [apiv2][query] GET https://projetofinal-10227-default-rtdb.firebaseio.com/.settings/rules.json [none]
+[debug] [2024-07-20T02:29:04.238Z] <<< [apiv2][status] GET https://projetofinal-10227-default-rtdb.firebaseio.com/.settings/rules.json 200
+[debug] [2024-07-20T02:29:04.238Z] <<< [apiv2][body] GET https://projetofinal-10227-default-rtdb.firebaseio.com/.settings/rules.json [stream]
+[info] +  Database Rules for projetofinal-10227-default-rtdb have been written to database.rules.json. 
+[info] Future modifications to database.rules.json will update Realtime Database Security Rules when you run
+[info] firebase deploy.
+[info] 
+=== Firestore Setup
+[debug] [2024-07-20T02:29:04.244Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/projetofinal-10227/services/firestore.googleapis.com [none]
+[debug] [2024-07-20T02:29:04.244Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/projetofinal-10227/services/firestore.googleapis.com x-goog-quota-user=projects/projetofinal-10227
+[debug] [2024-07-20T02:29:04.908Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/projetofinal-10227/services/firestore.googleapis.com 200
+[debug] [2024-07-20T02:29:04.909Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/projetofinal-10227/services/firestore.googleapis.com [omitted]
+[debug] [2024-07-20T02:29:04.909Z] >>> [apiv2][query] GET https://firestore.googleapis.com/v1/projects/projetofinal-10227/databases/(default) [none]
+[debug] [2024-07-20T02:29:05.232Z] <<< [apiv2][status] GET https://firestore.googleapis.com/v1/projects/projetofinal-10227/databases/(default) 200
+[debug] [2024-07-20T02:29:05.233Z] <<< [apiv2][body] GET https://firestore.googleapis.com/v1/projects/projetofinal-10227/databases/(default) {"name":"projects/projetofinal-10227/databases/(default)","uid":"c388dab1-ca91-409e-b771-598dd35c24eb","createTime":"2024-06-04T12:28:14.778808Z","updateTime":"2024-06-04T12:28:14.778808Z","locationId":"southamerica-east1","type":"FIRESTORE_NATIVE","concurrencyMode":"PESSIMISTIC","versionRetentionPeriod":"3600s","earliestVersionTime":"2024-07-20T01:29:05.126766Z","appEngineIntegrationMode":"DISABLED","keyPrefix":"i","pointInTimeRecoveryEnablement":"POINT_IN_TIME_RECOVERY_DISABLED","deleteProtectionState":"DELETE_PROTECTION_DISABLED","etag":"IPSXnZvJtIcDMNeOp8X5wYYD"}
+[debug] [2024-07-20T02:29:05.233Z] database_type: FIRESTORE_NATIVE
+[debug] [2024-07-20T02:29:05.233Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2024-07-20T02:29:05.233Z] > authorizing via signed-in user (lenejonatasfilho@gmail.com)
+[debug] [2024-07-20T02:29:05.233Z] [iam] checking project projetofinal-10227 for permissions ["firebase.projects.get"]
+[debug] [2024-07-20T02:29:05.234Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/projetofinal-10227:testIamPermissions [none]
+[debug] [2024-07-20T02:29:05.234Z] >>> [apiv2][(partial)header] POST https://cloudresourcemanager.googleapis.com/v1/projects/projetofinal-10227:testIamPermissions x-goog-quota-user=projects/projetofinal-10227
+[debug] [2024-07-20T02:29:05.234Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/projetofinal-10227:testIamPermissions {"permissions":["firebase.projects.get"]}
+[debug] [2024-07-20T02:29:06.168Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/projetofinal-10227:testIamPermissions 200
+[debug] [2024-07-20T02:29:06.168Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/projetofinal-10227:testIamPermissions {"permissions":["firebase.projects.get"]}
+[info] 
+[info] Firestore Security Rules allow you to define how and when to allow
+[info] requests. You can keep these rules in your project directory
+[info] and publish them with firebase deploy.
+[info] 
+[debug] [2024-07-20T02:29:12.409Z] >>> [apiv2][query] GET https://firebaserules.googleapis.com/v1/projects/projetofinal-10227/releases pageSize=10&pageToken=
+[debug] [2024-07-20T02:29:13.692Z] <<< [apiv2][status] GET https://firebaserules.googleapis.com/v1/projects/projetofinal-10227/releases 200
+[debug] [2024-07-20T02:29:13.693Z] <<< [apiv2][body] GET https://firebaserules.googleapis.com/v1/projects/projetofinal-10227/releases {"releases":[{"name":"projects/projetofinal-10227/releases/cloud.firestore","rulesetName":"projects/projetofinal-10227/rulesets/01697842-0db5-4944-a6d0-7bfd1ca218f0","createTime":"2024-06-04T12:28:23.280557Z","updateTime":"2024-06-04T12:28:23.280557Z"}]}
+[debug] [2024-07-20T02:29:13.693Z] Found ruleset: projects/projetofinal-10227/rulesets/01697842-0db5-4944-a6d0-7bfd1ca218f0
+[debug] [2024-07-20T02:29:13.693Z] >>> [apiv2][query] GET https://firebaserules.googleapis.com/v1/projects/projetofinal-10227/rulesets/01697842-0db5-4944-a6d0-7bfd1ca218f0 [none]
+[debug] [2024-07-20T02:29:14.828Z] <<< [apiv2][status] GET https://firebaserules.googleapis.com/v1/projects/projetofinal-10227/rulesets/01697842-0db5-4944-a6d0-7bfd1ca218f0 200
+[debug] [2024-07-20T02:29:14.828Z] <<< [apiv2][body] GET https://firebaserules.googleapis.com/v1/projects/projetofinal-10227/rulesets/01697842-0db5-4944-a6d0-7bfd1ca218f0 [omitted]
+[info] 
+[info] Firestore indexes allow you to perform complex queries while
+[info] maintaining performance that scales with the size of the result
+[info] set. You can keep index definitions in your project directory
+[info] and publish them with firebase deploy.
+[info] 
+[debug] [2024-07-20T02:29:14.838Z] >>> [apiv2][query] GET https://firestore.googleapis.com/v1/projects/projetofinal-10227/databases/(default)/collectionGroups/-/indexes [none]
+[debug] [2024-07-20T02:29:14.840Z] >>> [apiv2][query] GET https://firestore.googleapis.com/v1/projects/projetofinal-10227/databases/(default)/collectionGroups/-/fields?filter=indexConfig.usesAncestorConfig=false OR ttlConfig:* [none]
+[debug] [2024-07-20T02:29:15.100Z] <<< [apiv2][status] GET https://firestore.googleapis.com/v1/projects/projetofinal-10227/databases/(default)/collectionGroups/-/indexes 200
+[debug] [2024-07-20T02:29:15.100Z] <<< [apiv2][body] GET https://firestore.googleapis.com/v1/projects/projetofinal-10227/databases/(default)/collectionGroups/-/indexes {}
+[debug] [2024-07-20T02:29:15.107Z] <<< [apiv2][status] GET https://firestore.googleapis.com/v1/projects/projetofinal-10227/databases/(default)/collectionGroups/-/fields?filter=indexConfig.usesAncestorConfig=false OR ttlConfig:* 200
+[debug] [2024-07-20T02:29:15.107Z] <<< [apiv2][body] GET https://firestore.googleapis.com/v1/projects/projetofinal-10227/databases/(default)/collectionGroups/-/fields?filter=indexConfig.usesAncestorConfig=false OR ttlConfig:* {"fields":[{"name":"projects/projetofinal-10227/databases/(default)/collectionGroups/__default__/fields/*","indexConfig":{"indexes":[{"queryScope":"COLLECTION","fields":[{"fieldPath":"*","order":"ASCENDING"}],"state":"READY"},{"queryScope":"COLLECTION","fields":[{"fieldPath":"*","order":"DESCENDING"}],"state":"READY"},{"queryScope":"COLLECTION","fields":[{"fieldPath":"*","arrayConfig":"CONTAINS"}],"state":"READY"}]}}]}
+[info] 
+=== Functions Setup
+[debug] [2024-07-20T02:29:15.110Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2024-07-20T02:29:15.110Z] > authorizing via signed-in user (lenejonatasfilho@gmail.com)
+[debug] [2024-07-20T02:29:15.110Z] [iam] checking project projetofinal-10227 for permissions ["firebase.projects.get"]
+[debug] [2024-07-20T02:29:15.110Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/projetofinal-10227:testIamPermissions [none]
+[debug] [2024-07-20T02:29:15.110Z] >>> [apiv2][(partial)header] POST https://cloudresourcemanager.googleapis.com/v1/projects/projetofinal-10227:testIamPermissions x-goog-quota-user=projects/projetofinal-10227
+[debug] [2024-07-20T02:29:15.111Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/projetofinal-10227:testIamPermissions {"permissions":["firebase.projects.get"]}
+[debug] [2024-07-20T02:29:16.034Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/projetofinal-10227:testIamPermissions 200
+[debug] [2024-07-20T02:29:16.035Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/projetofinal-10227:testIamPermissions {"permissions":["firebase.projects.get"]}
+[debug] [2024-07-20T02:29:16.035Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/projetofinal-10227/services/cloudfunctions.googleapis.com [none]
+[debug] [2024-07-20T02:29:16.035Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/projetofinal-10227/services/cloudfunctions.googleapis.com x-goog-quota-user=projects/projetofinal-10227
+[debug] [2024-07-20T02:29:16.038Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/projetofinal-10227/services/runtimeconfig.googleapis.com [none]
+[debug] [2024-07-20T02:29:16.038Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/projetofinal-10227/services/runtimeconfig.googleapis.com x-goog-quota-user=projects/projetofinal-10227
+[debug] [2024-07-20T02:29:17.119Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/projetofinal-10227/services/runtimeconfig.googleapis.com 200
+[debug] [2024-07-20T02:29:17.119Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/projetofinal-10227/services/runtimeconfig.googleapis.com [omitted]
+[debug] [2024-07-20T02:29:17.123Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/projetofinal-10227/services/cloudfunctions.googleapis.com 200
+[debug] [2024-07-20T02:29:17.123Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/projetofinal-10227/services/cloudfunctions.googleapis.com [omitted]
+[info] Let's create a new codebase for your functions.
+[info] A directory corresponding to the codebase will be created in your project
+[info] with sample code pre-configured.
+
+[info] See https://firebase.google.com/docs/functions/organize-functions for
+[info] more information on organizing your functions using codebases.
+
+[info] Functions can be deployed with firebase deploy.
+
+[info] +  Wrote functions/requirements.txt 
+[info] +  Wrote functions/.gitignore 
+[info] +  Wrote functions/main.py 
+[debug] [2024-07-20T02:29:45.087Z] Running command with virtualenv: command="C:\Users\Usuário\Desktop\css\functions\venv\Scripts\activate.bat", args=["","&&","pip3","install","--upgrade","pip"]
+[debug] [2024-07-20T02:29:45.370Z] Error: spawn "C:\Users\Usuário\Desktop\css\functions\venv\Scripts\activate.bat" ENOENT
+    at notFoundError (C:\Users\Usuário\AppData\Roaming\npm\node_modules\firebase-tools\node_modules\cross-spawn\lib\enoent.js:6:26)
+    at verifyENOENT (C:\Users\Usuário\AppData\Roaming\npm\node_modules\firebase-tools\node_modules\cross-spawn\lib\enoent.js:40:16)
+    at cp.emit (C:\Users\Usuário\AppData\Roaming\npm\node_modules\firebase-tools\node_modules\cross-spawn\lib\enoent.js:27:25)
+    at ChildProcess._handle.onexit (node:internal/child_process:294:12)
+[error] 
+[error] Error: An unexpected error has occurred.

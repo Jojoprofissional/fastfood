@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/stylesheets/estilo.css">
+    <title>Login</title>
+</head>
+
+<body>
+    <div class="main-login">
+        <div class="left-login">
+
+        </div>
+        <div class="right-login">
+            <div class="card-login">
+                <h1>Login</h1>
+                <div class="textfield">
+                    <label for="usuario">Usuário</label>
+                    <input type="text" id="usuario" name="usuario" placeholder="Usuário">
+                </div>
+                <div class="textfield">
+                    <label for="senha">Senha</label>
+                    <input type="password" id="senha" name="senha" placeholder="Senha">
+                </div>
+                <button id="btn-login" class="btn-login" onclick="login()">Login</button>
+                <a href="/teladecadastro">Clique aqui para se cadastrar</a>
+            </div>
+        </div>
+
+        <script src="https://www.gstatic.com/firebasejs/10.12.4/firebase-app-compat.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/10.12.4/firebase-auth-compat.js"></script>
+
+        <script>
+            const firebaseConfig = {
+                apiKey: "AIzaSyBVUbpvQXrB8tqBw2hDvgdHJ5h00x6FPWk",
+                authDomain: "projetofinal-10227.firebaseapp.com",
+                databaseURL: "https://projetofinal-10227-default-rtdb.firebaseio.com",
+                projectId: "projetofinal-10227",
+                storageBucket: "projetofinal-10227.appspot.com",
+                messagingSenderId: "178734014478",
+                appId: "1:178734014478:web:235d8e4960631733455c5f",
+                measurementId: "G-F07KKVGK5K"
+            };
+            firebase.initializeApp(firebaseConfig);
+
+            function checkError() {
+                console.log("error");
+                document.getElementById("btn-login").disabled = true;
+            }
+          
+            function login() {
+                const email = document.getElementById("usuario").value;
+                const password = document.getElementById("senha").value;
+
+                firebase.auth().signInWithEmailAndPassword(email, password)
+                    .then(response => {
+                        console.log("sucesso");
+                        window.location.href = "index.html";
+                    })
+                    .catch(error => {
+                        console.log("error");
+                        checkError();
+                    });
+            }
+        </script>
+</body>
+
+</html>

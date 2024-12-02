@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/stylesheets/telacadastro.css">
+    <title>Cadastro</title>
+</head>
+
+<body>
+    <div class="main-login">
+        <div class="left-login">
+    
+        </div>
+        <div class="right-login">
+            <div class="card-login">
+                <h1>Cadastro</h1>
+                <div class="textfield">
+                    <label for="usuario">Usuário (Email)</label>
+                    <input type="email" id="usuario" name="usuario" placeholder="Usuário (Email)" required>
+                </div>
+                <div class="textfield">
+                    <label for="senha">Senha</label>
+                    <input type="password" id="senha" name="senha" placeholder="Senha" required>
+                </div>
+                <button id="btn-login" class="btn-login" onclick="signup()">Cadastrar</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://www.gstatic.com/firebasejs/10.12.4/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.12.4/firebase-auth-compat.js"></script>
+
+    <script>
+       
+        const firebaseConfig = {
+            apiKey: "AIzaSyBVUbpvQXrB8tqBw2hDvgdHJ5h00x6FPWk",
+            authDomain: "projetofinal-10227.firebaseapp.com",
+            databaseURL: "https://projetofinal-10227-default-rtdb.firebaseio.com",
+            projectId: "projetofinal-10227",
+            storageBucket: "projetofinal-10227.appspot.com",
+            messagingSenderId: "178734014478",
+            appId: "1:178734014478:web:235d8e4960631733455c5f",
+            measurementId: "G-F07KKVGK5K"
+        };
+
+        const app = firebase.initializeApp(firebaseConfig);
+        const auth = firebase.auth();
+
+        
+        function cadastrarUsuario(email, senha) {
+    auth.fetchSignInMethodsForEmail(email)
+        .then((signInMethods) => {
+            if (signInMethods.length > 0) {
+                alert('O e-mail já está em uso. Por favor, tente fazer login ou use outro e-mail.');
+  
+            } else {
+             
+                auth.createUserWithEmailAndPassword(email, senha)
+                    .then((userCredential) => {
+                 
+                        const user = userCredential.user;
+                        console.log('Usuário cadastrado:', user);
+                        alert('Cadastro realizado com sucesso!');
+                        window.location.href = "/";
+                    })
+
+
+                    .catch((error) => {
+    const errorCode = error.code;
+    const errorMessage = error.message;
+    let customMessage;
+
+    switch (errorCode) {
+        case 'auth/email-already-in-use':
+         customMessage = 'Usuário já cadastrado. Por favor, vá para a tela de login clicano aqui. ';
+         alert(customMessage);
+         window.location.href = '/alguma';
+         break;
+        case 'auth/invalid-email':
+            customMessage = 'O e-mail fornecido não é válido. Verifique e tente novamente.';
+            break;
+        case 'auth/weak-password':
+            customMessage = 'A senha é muito fraca. Por favor, escolha uma senha mais forte.';
+            break;
+        case 'auth/network-request-failed':
+            customMessage = 'Problema de conexão. Verifique sua internet e tente novamente.';
+            break;
+        default:
+            customMessage = 'Ocorreu um erro inesperado. Por favor, tente novamente mais tarde.';
+    }
+
+    console.error('Erro no cadastro:', errorCode, errorMessage);
+    alert('Erro no cadastro: ' + customMessage);
+});
+
+            }
+        })
+        .catch((error) => {
+            console.error('Erro ao verificar e-mail:', error);
+            alert('Erro ao verificar e-mail: ' + error.message);
+        });
+}
+
+        function signup() {
+            const email = document.getElementById("usuario").value;
+            const senha = document.getElementById("senha").value;
+
+            if (email && senha) {
+                cadastrarUsuario(email, senha);
+            } else {
+                alert("Por favor, preencha todos os campos.");
+            }
+        }
+    </script>
+</body>
+
+</html>
+
+
+<script></script>

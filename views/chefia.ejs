@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Clientes</title>
+
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
+
+  <link rel="icon" href="/favicon.ico">
+  <link rel="stylesheet" href="/stylesheets/chefe.css">
+</head>
+
+<body>
+  <div class="container">
+    <h1>Clientes</h1>
+    <table id="clientes-table">
+      <thead>
+        <tr>
+          <th>Nome</th>
+          <th>Bairro</th>
+          <th>Telefone</th>
+          <th>Rua</th>
+          <th>Número da Casa</th>
+          
+        </tr>
+      </thead>
+      <tbody>
+      </tbody>
+    </table>
+  </div>
+
+  <a href="/plus">
+    <div class="hamburger-btn">
+      <i class="fas fa-utensils"></i>
+    </div>
+  </a>
+
+  <script>
+    
+    const firebaseConfig = {
+      apiKey: "AIzaSyBVUbpvQXrB8tqBw2hDvgdHJ5h00x6FPWk",
+      authDomain: "projetofinal-10227.firebaseapp.com",
+      databaseURL: "https://projetofinal-10227-default-rtdb.firebaseio.com",
+      projectId: "projetofinal-10227",
+      storageBucket: "projetofinal-10227.appspot.com",
+      messagingSenderId: "178734014478",
+      appId: "1:178734014478:web:235d8e4960631733455c5f",
+      measurementId: "G-F07KKVGK5K"
+    };
+
+    firebase.initializeApp(firebaseConfig);
+    const db = firebase.firestore();
+
+   
+    async function loadClientes() {
+      try {
+        const querySnapshot = await db.collection('cadastros').get();
+        const clientes = querySnapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
+
+        const tableBody = document.querySelector('#clientes-table tbody');
+        tableBody.innerHTML = '';
+
+        clientes.forEach((cliente) => {
+          const row = tableBody.insertRow();
+          row.insertCell(0).textContent = cliente.nome || 'Não disponível';
+          row.insertCell(1).textContent = cliente.bairro || 'Não disponível';
+          row.insertCell(2).textContent = cliente.telefone || 'Não disponível';
+          row.insertCell(3).textContent = cliente.rua || 'Não disponível';
+          row.insertCell(4).textContent = cliente.numeroCasa || 'Não disponível';
+
+          
+          const deleteCell = row.insertCell(5);
+          const deleteButton = document.createElement('button');
+          deleteButton.textContent = 'Excluir';
+          deleteButton.style.backgroundColor = '#e74c3c';
+          deleteButton.style.color = '#fff';
+          deleteButton.style.border = 'none';
+          deleteButton.style.padding = '5px 10px';
+          deleteButton.style.cursor = 'pointer';
+
+          deleteButton.onclick = () => deleteCliente(cliente.id);
+          deleteCell.appendChild(deleteButton);
+        });
+      } catch (error) {
+        console.error('Erro ao carregar os clientes:', error);
+      }
+    }
+
+  
+    async function deleteCliente(clienteId) {
+      try {
+        const confirmacao = confirm('Tem certeza que deseja excluir este cliente?');
+        if (confirmacao) {
+          await db.collection('cadastros').doc(clienteId).delete();
+          alert('Cliente excluído com sucesso!');
+          loadClientes();
+        }
+      } catch (error) {
+        console.error('Erro ao excluir o cliente:', error);
+        alert('Ocorreu um erro ao tentar excluir o cliente.');
+      }
+    }
+
+    window.onload = loadClientes;
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulário de Cadastro</title>
+    <link rel="stylesheet" href="/stylesheets/coisas.css">
+</head>
+<body>
+    <h2>Formulário de Cadastro</h2>
+
+    <form id="formulario">
+        <label for="nome">Nome Completo:</label><br>
+        <input type="text" id="nome" name="nome" required><br><br>
+
+        <label for="bairro">Bairro:</label><br>
+        <input type="text" id="bairro" name="bairro" required><br><br>
+
+        <label for="rua">Rua:</label><br>
+        <input type="text" id="rua" name="rua" required><br><br>
+
+        <label for="numeroCasa">Número da Casa:</label><br>
+        <input type="text" id="numeroCasa" name="numeroCasa" required><br><br>
+
+        <label for="telefone">Número de Telefone:</label><br>
+        <input type="tel" id="telefone" name="telefone" required><br><br>
+
+        <button type="submit">Enviar</button>
+    </form>
+
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-firestore.js"></script>
+    
+</body>
+</html>
+
+
+<script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-app.js";
+    import { getFirestore, collection, addDoc } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-firestore.js";
+    
+    const firebaseConfig = {
+  apiKey: "AIzaSyBVUbpvQXrB8tqBw2hDvgdHJ5h00x6FPWk",
+  authDomain: "projetofinal-10227.firebaseapp.com",
+  databaseURL: "https://projetofinal-10227-default-rtdb.firebaseio.com",
+  projectId: "projetofinal-10227",
+  storageBucket: "projetofinal-10227.firebasestorage.app",
+  messagingSenderId: "178734014478",
+  appId: "1:178734014478:web:235d8e4960631733455c5f",
+  measurementId: "G-F07KKVGK5K"
+};
+  
+  
+    const app = initializeApp(firebaseConfig);
+    const db = getFirestore(app);
+
+    document.getElementById('formulario').addEventListener('submit', async function (event) {
+      event.preventDefault();
+  
+      
+      const nome = document.getElementById('nome').value;
+      const bairro = document.getElementById('bairro').value;
+      const rua = document.getElementById('rua').value;
+      const numeroCasa = document.getElementById('numeroCasa').value;
+      const telefone = document.getElementById('telefone').value;
+  
+    
+      try {
+        const docRef = await addDoc(collection(db, "cadastros"), {
+          nome: nome,
+          bairro: bairro,
+          rua: rua,
+          numeroCasa: numeroCasa,
+          telefone: telefone
+        });
+        alert('Cadastro realizado com sucesso um entregador ira entrega mo endereço informado!');
+        document.getElementById('formulario').reset();
+      } catch (error) {
+        console.error("Erro ao adicionar documento: ", error);
+        alert('Erro ao cadastrar. Tente novamente.');
+      }
+    });
+  </script>
+  
